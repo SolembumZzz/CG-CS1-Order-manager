@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div id="title">
+                <h1>Orders Manager</h1>
+            </div>
+            <table id="tb-create">
+                <tr>
+                    <td>Date</td>
+                    <td>Status</td>
+                    <td>Customers</td>
+                    <td>Email</td>
+                    <td>Tel</td>
+                    <td>Location</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="date" class="inputNew" id="inputDate"></td>
+                    <td>
+                        <select id="inputStatus" class="select inputNew" name="status">
+                            <option value="Pending">Pending</option>
+                            <option value="Dispatched">Dispatched</option>
+                            <option value="Suspended">Suspended</option>
+                            <option value="Canceled">Canceled</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="inputNew" id="inputCustomer" required></td>
+                    <td><input type="email" class="inputNew" id="inputEmail" required></td>
+                    <td><input type="tel" class="inputNew" id="inputTel" maxlength="11" required></td>
+                    <td><input type="text" class="inputNew" id="inputLocation" maxlength="15" required></td>
+                    <td class="tr-btn"><input type="button" class="btn btn-blue" onclick="submitNew()" value="Submit"></td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="3">
+                            <h3>Product Summary</h3>
+                        </td>
+                        <td colspan="3" class="tr-btn"><button type="button" class="btn btn-blue" onclick="removeSelected()">Remove Selected</button></td>
+                        <td colspan="4" class="tr-btn"><button type="button" class="btn btn-blue" onclick="dispatchSelected()">Dispatch Selected</button></td>
+                    </tr>
+                    <tr class="titleList">
+                        <th><input type="checkbox" onclick="selectAll(this)" value="unchecked" id="deeBox"></th>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Customers</th>
+                        <th>Email</th>
+                        <th>Tel</th>
+                        <th>Location</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="orderList">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
