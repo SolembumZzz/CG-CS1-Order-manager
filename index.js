@@ -244,26 +244,29 @@ function selectAll(deeBox) {
 function dispatchSelected() {
     let checkedBoxes = document.querySelectorAll('input[name = checkOrder]:checked');
     for (const checkedBox of checkedBoxes) {
-       let id = Number(checkedBox.id.substring(9,checkedBox.length));
-       let order =  getOrderByID(id);
-       let index =  orders.indexOf(order);
-           order.status = "Dispatched";
-           orders[index] = order;
+        let id = Number(checkedBox.id.substring(9, checkedBox.length));
+        let order = getOrderByID(id);
+        let index = orders.indexOf(order);
+        order.status = "Dispatched";
+        orders[index] = order;
     }
     setLocalStorage(orderData, orders);
     renderOrders();
 }
 
 function removeSelected() {
-    let checkedBoxes = document.querySelectorAll('input[name = checkOrder]:checked');
-    for (const checkedBox of checkedBoxes) {
-        let id = Number(checkedBox.id.substring(9,checkedBox.length));
-        let order = getOrderByID(id);
-        let index = orders.indexOf(order);
-        orders.splice(index, 1);
+    let confirmed = window.confirm('Are you sure you want to delete these orders?')
+    if (confirmed) {
+        let checkedBoxes = document.querySelectorAll('input[name = checkOrder]:checked');
+        for (const checkedBox of checkedBoxes) {
+            let id = Number(checkedBox.id.substring(9, checkedBox.length));
+            let order = getOrderByID(id);
+            let index = orders.indexOf(order);
+            orders.splice(index, 1);
+        }
+        setLocalStorage(orderData, orders);
+        renderOrders();
     }
-    setLocalStorage(orderData, orders);
-    renderOrders();
 }
 
 (function () {
