@@ -45,10 +45,10 @@ th:not(:last-child), td:not(:last-child) {
 }
 
 #orderList td:nth-child(5) {
-    width: 35%;
+    width: 25%;
 }
 #orderList td:nth-child(6) {
-    width: 30%;
+    width: 20%;
 }
 
 #orderList td:nth-child(7), #orderList td:nth-child(8) {
@@ -88,10 +88,15 @@ th:not(:last-child), td:not(:last-child) {
     background-color: #3b49e8;
     border-color: currentcolor;
     color: white;
+    margin-left: 2px;
 }
 
 .tr-btn {
     text-align: right;
+}
+
+#tb-create .btn-blue {
+    margin-bottom: 4px;
 }
 
 .select {
